@@ -1,0 +1,35 @@
+import java.util.*;
+import java.io.*;
+import java.math.*;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution {
+
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int L = in.nextInt();
+        int H = in.nextInt();
+        if (in.hasNextLine()) {
+            in.nextLine();
+        }
+        String T = in.nextLine();
+        String str = T.toUpperCase();
+         for (int i = 0; i < H; i++) { // Sequence of A...Z? in ASCII art
+            String ROW = in.nextLine();
+            for(int j = 0; j < T.length(); j++) {
+                char C = str.charAt(j); // single character
+                for(int p = 0; p < L; p++) {
+                    if(C >= 'A' && C <= 'Z') {
+                        System.out.print(ROW.charAt(p + L * (C - 65)));
+                    } else {
+                        System.out.print(ROW.charAt(p + L * 26));
+                    }
+                }
+            }
+            System.out.println();
+        }
+}
+}
